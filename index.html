@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="jquery.atwho.css">
+    <title></title>
+  </head>
+  <body>
+
+<textarea name="inputor" id='inputor' rows="8" cols="80"></textarea>
+
+<script src="jquery-3.3.1.min.js" charset="utf-8"></script>
+<script src="jquery.caret.js" charset="utf-8"></script>
+<script src="jquery.atwho.js" charset="utf-8"></script>
+
+<script>
+$('#inputor').atwho({
+  at: "@",
+  delay: 300,
+  callbacks: {
+     remoteFilter: function(query, callback) {
+       $.getJSON("/at_js_example/users.php", {q: query}, function(usernames) {
+         callback(usernames)
+       });
+     }
+   }
+})
+</script>
+  </body>
+</html>
