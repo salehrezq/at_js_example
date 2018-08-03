@@ -20,7 +20,7 @@ $('#inputor').atwho({
   callbacks: {
      remoteFilter: function(query, callback) {
        $.getJSON("/at_js_example/users.php", {q: query}, function(usernames) {
-         callback(usernames)
+         callback(usernames);
        });
      }
    }
